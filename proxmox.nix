@@ -8,7 +8,7 @@
   config = {
     services.proxmox-ve = {
       enable = true;
-      ipAddress  = "127.0.0.1";
+      ipAddress  = "192.168.2.14";
     };
     nix.settings = {
       substituters = [
