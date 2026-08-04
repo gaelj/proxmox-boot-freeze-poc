@@ -12,11 +12,41 @@
       ipAddress  = "127.0.0.1";
       ceph = {
         enable = true;
-        mgr.enable = true;
-        mon.enable = true;
-        osd.enable = true;
-        mds.enable = true;
-        rgw.enable = true;
+        mgr = {
+          enable = true;
+          daemons = [
+            "name1"
+            "name2"
+          ];
+        };
+        mon = {
+          enable = true;
+          daemons = [
+            "name1"
+            "name2"
+          ];
+        };
+        osd = {
+          enable = true;
+          daemons = [
+            "1"
+            "2"
+          ];
+        };
+        mds = {
+          enable = true;
+          daemons = [
+            "name1"
+            "name2"
+          ];
+        };
+        rgw = {
+          enable = true;
+          daemons = [
+            "name1"
+            "name2"
+          ];
+        };
       };
     };
     nix.settings = {
