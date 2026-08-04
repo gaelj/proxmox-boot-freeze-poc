@@ -2,6 +2,7 @@
   pkgs,
   system,
   lib,
+  inputs,
   ...
 }:
 {
@@ -12,7 +13,7 @@
     };
 
     nixpkgs.overlays = [
-      proxmox-nixos.overlays.${system}
+      inputs.proxmox-nixos.overlays.${system}
     ];
   };
 }
