@@ -13,7 +13,7 @@ proxmox-poc = {
 
 Add the module `proxmox-poc.nixosModules.proxmox-poc` to your nixosConfiguration modules.
 
-Add in your config `systemd.network.networks."10-proxmox-lan".matchConfig.Name = [ "<network interface>" ];` (requires `systemd-networkd` networking)
+Add in your config `networking.bridges."vmbr0".interfaces = [ "<network interface>" ];` (requires `NetworkManager` networking)
 
 Generate the VM image with `nixos-rebuild build-image --image-variant proxmox --flake .#proxmox-poc`
 Note the store path.
