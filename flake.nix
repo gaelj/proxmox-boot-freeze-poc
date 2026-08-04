@@ -22,7 +22,6 @@
               proxmox-nixos.nixosModules.proxmox-ve
               ./network.nix
               ./proxmox.nix
-              ./vm.nix
             ];
             config = {
               nixpkgs.overlays = [
