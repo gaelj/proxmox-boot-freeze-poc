@@ -18,16 +18,7 @@
     (modulesPath + "/virtualisation/proxmox-image.nix")
   ];
 
-  # fileSystems."/" = {
-  #   device = "/dev/sda";
-  #   fsType = "ext4";
-  # };
-
-  # virtualisation.qemu. = [
-  #   "-bios" "${pkgs.OVMF.fd}/FV/OVMF.fd"
-  # ];
-
-  proxmox.qemuConf.bios = "ovmf";
+  proxmox.qemuConf.bios = "SeaBIOS";
 
   networking.networkmanager.enable = true;
 
