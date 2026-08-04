@@ -15,7 +15,7 @@ Add the module `proxmox-poc.nixosModules.proxmox-poc` to your nixosConfiguration
 
 Add in your config `networking.bridges."vmbr0".interfaces = [ "<network interface>" ];` (requires `NetworkManager` networking)
 
-Generate the VM image with `nixos-rebuild build-image --image-variant proxmox --flake .#proxmox-poc`
+Generate the VM image by running in this repo: `nixos-rebuild build-image --image-variant proxmox --flake .#proxmox-poc`
 Note the store path.
 
 Apply the config.
@@ -23,9 +23,14 @@ Apply the config.
 Open proxmox in a browser at `https://localhost:8006/`. Use PAM creds with `root` and your system's root password.
 
 ```bash
+# destroy any previous instance
+sudo qm destroy 101
+
 sudo pvesm set local --content iso,vztmpl,backup,images
 
 sudo qmrestore /nix/store/ydv79c1qd8hj5jk9xv1hgnpz3gi3pphz-vzdump-qemu-nixos-26.11.20260804.e72e4f2/vzdump-qemu-nixos-26.11.20260804.e72e4f2.vma.zst 101 --storage local
 ```
 
 Start the VM in proxmox.
+
+Login with `me` / `nixos`.

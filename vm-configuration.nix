@@ -1,9 +1,5 @@
 { lib, pkgs, config, modulesPath, ... }:
 {
-
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
   # User account with sudo privileges
   users.users.me = {
     isNormalUser = true;
@@ -22,23 +18,11 @@
 
   networking.networkmanager.enable = true;
 
-  services = {
-    qemuGuest.enable = lib.mkDefault true;
-  };
+  services.qemuGuest.enable = true;
 
   fileSystems."/" = {
     autoFormat = true;
     autoResize = true;
-    # device = "/dev/disk/by-label/nixos";
-    # enable = true;
-    # formatOptions = null;
-    # fsType = "ext4";
-    # # label = null;
-    # mountPoint = "/";
-    # options = [
-    #   "x-initrd.mount"
-    #   "noatime
-    # ];
   };
 
   boot = {
@@ -46,14 +30,11 @@
       systemd.enable = lib.mkForce true; # set this false to fix the issue
       kernelModules = [ ];
       availableKernelModules = [
-        "uhci_hcd"
-        # "ehci_pci"
-        # "ahci"
-        "virtio_pci"
-        "virtio_scsi"
-        "sd_mod"
-        "sr_mod"
         "ata_piix"
+        "uhci_hcd"
+        "virtio_pci"
+        "sr_mod"
+        "virtio_blk"
       ];
     };
 
@@ -61,18 +42,18 @@
       # "kvm-intel"
     ];
     extraModulePackages = [ ];
-    loader.grub = {
-      device = lib.mkDefault "/dev/sda";
-      devices = [ "nodev" ];
-      useOSProber = true;
+
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+
+      grub = {
+        device = lib.mkDefault "/dev/sda";
+        devices = [ "nodev" ];
+        useOSProber = true;
+      };
     };
     growPartition = lib.mkDefault true;
-  };
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    # layout = "be";
-    variant = "";
   };
 
   hardware = {
