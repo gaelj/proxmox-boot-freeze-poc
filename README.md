@@ -17,3 +17,7 @@ Add in your config `systemd.network.networks."10-proxmox-lan".matchConfig.Name =
 
 Generate the VM image with `nixos-rebuild build-image --image-variant proxmox --flake .#proxmox-poc`
 Note the store path.
+
+Apply the config.
+
+Open proxmox in a browser at `https://localhost:8006/`. Use PAM creds with `root` and your system's root password.

@@ -10,6 +10,14 @@
       enable = true;
       # ipAddress = "192.168.0.1";
       ipAddress  = "127.0.0.1";
+      ceph = {
+        enable = true;
+        mgr.enable = true;
+        mon.enable = true;
+        osd.enable = true;
+        mds.enable = true;
+        rgw.enable = true;
+      };
     };
     nix.settings = {
       substituters = [
