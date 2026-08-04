@@ -12,7 +12,7 @@
       self,
       nixpkgs,
       proxmox-nixos,
-    }:
+    }@inputs:
     {
       nixosModules = {
         proxmox-poc = (
@@ -24,6 +24,11 @@
               ./proxmox.nix
               ./vm.nix
             ];
+            config = {
+              nixpkgs.overlays = [
+                proxmox-nixos.overlays.${system}
+              ];
+            };
           }
         );
       };
