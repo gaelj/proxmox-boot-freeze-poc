@@ -16,7 +16,7 @@
     {
       nixosModules = {
         proxmox-poc = (
-          { ... }:
+          { system, ... }:
           {
             imports = [
               proxmox-nixos.nixosModules.proxmox-ve
