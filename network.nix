@@ -9,28 +9,17 @@
     # Make vmbr0 bridge visible in Proxmox web interface
     services.proxmox-ve.bridges = [ "vmbr0" ];
 
-    # Actually set up the vmbr0 bridge
-    systemd.network.networks."10-proxmox-lan" = {
-      #  matchConfig.Name = [ "ens18" ];
-      networkConfig = {
-        Bridge = "vmbr0";
-      };
-    };
+    networking = {
+      # useNetworkd = false; # make sure you're not also toggling this on elsewhere
+      # networkmanager.enable = lib.mkForce false; # disable NM, it's fighting you
 
-    systemd.network.netdevs."vmbr0" = {
-      netdevConfig = {
-        Name = "vmbr0";
-        Kind = "bridge";
-      };
-    };
+      # useDHCP = lib.mkDefault true;
 
-    systemd.network.networks."10-lan-bridge" = {
-      matchConfig.Name = "vmbr0";
-      networkConfig = {
-        IPv6AcceptRA = true;
-        DHCP = "ipv4";
+      # bridges."vmbr0".interfaces = [ "enp3s0" ];
+
+      interfaces = {
+        "vmbr0".useDHCP = lib.mkDefault true;
       };
-      linkConfig.RequiredForOnline = "routable";
     };
   };
 }
