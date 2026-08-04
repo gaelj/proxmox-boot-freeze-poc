@@ -16,28 +16,19 @@
     {
       nixosModules = {
         proxmox-poc = (
-          {
-            pkgs,
-            system,
-            lib,
-            ...
-          }:
+          { ... }:
           {
             imports = [
               proxmox-nixos.nixosModules.proxmox-ve
+              ./network.nix
+              ./proxmox.nix
+              ./vm.nix
             ];
-            config = {
-              services.proxmox-ve = {
-                enable = true;
-                ipAddress = "192.168.0.1";
-              };
-
-              nixpkgs.overlays = [
-                proxmox-nixos.overlays.${system}
-              ];
-            };
           }
         );
+      };
+      nixosConfigurations.proxmox-poc = nixpkgs.lib.nixosSystem {
+        modules = [ ./vm-configuration.nix ];
       };
     };
 }
