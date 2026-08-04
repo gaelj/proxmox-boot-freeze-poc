@@ -14,7 +14,7 @@
     (modulesPath + "/virtualisation/proxmox-image.nix")
   ];
 
-  proxmox.qemuConf.bios = "seabios";
+  # proxmox.qemuConf.bios = "seabios";
 
   networking.networkmanager.enable = true;
 
