@@ -28,9 +28,9 @@ sudo qm destroy 101
 
 sudo pvesm set local --content iso,vztmpl,backup,images
 
-sudo qmrestore /nix/store/ydv79c1qd8hj5jk9xv1hgnpz3gi3pphz-vzdump-qemu-nixos-26.11.20260804.e72e4f2/vzdump-qemu-nixos-26.11.20260804.e72e4f2.vma.zst 101 --storage local
+sudo qmrestore /nix/store/qjckiibggz4cf0j9srk0g9q7wjss3r7m-vzdump-qemu-nixos-26.11.20260804.e72e4f2/vzdump-qemu-nixos-26.11.20260804.e72e4f2.vma.zst 101 --storage local
 ```
 
 Start the VM in proxmox.
 
-Login with `me` / `nixos`.
+Login with `nixos` / `nixos`.

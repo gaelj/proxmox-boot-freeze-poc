@@ -1,7 +1,7 @@
 { lib, pkgs, config, modulesPath, ... }:
 {
   # User account with sudo privileges
-  users.users.me = {
+  users.users.nixos = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     initialPassword = "nixos"; # Change this!
@@ -14,7 +14,7 @@
     (modulesPath + "/virtualisation/proxmox-image.nix")
   ];
 
-  proxmox.qemuConf.bios = "SeaBIOS";
+  proxmox.qemuConf.bios = "seabios";
 
   networking.networkmanager.enable = true;
 
@@ -44,11 +44,11 @@
     extraModulePackages = [ ];
 
     loader = {
-      systemd-boot.enable = true;
+      grub.enable = true;
+      # systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
 
       grub = {
-        device = lib.mkDefault "/dev/sda";
         devices = [ "nodev" ];
         useOSProber = true;
       };
