@@ -72,6 +72,7 @@ in
       videoResolution = "";
       loader = "grub";
     };
+    devices.kmscon.enable = false;
     network.interface = "ens18";
     flakeRoot = ./.;
     flakeMainDir = ./flake;
@@ -133,6 +134,7 @@ in
       # "kvm-intel"
     ];
     extraModulePackages = [ ];
+    # kernelParams = lib.mkForce [];
 
     loader = {
       # grub.enable = true;
