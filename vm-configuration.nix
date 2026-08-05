@@ -134,7 +134,12 @@ in
       # "kvm-intel"
     ];
     extraModulePackages = [ ];
-    # kernelParams = lib.mkForce [];
+    kernelParams = lib.mkForce [
+      "console=ttyS0"
+      "root=fstab"
+      "loglevel=4"
+      "lsm=landlock,yama,bpf"
+    ];
 
     loader = {
       # grub.enable = true;
