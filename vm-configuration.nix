@@ -14,7 +14,7 @@
     (modulesPath + "/virtualisation/proxmox-image.nix")
   ];
 
-  # proxmox.qemuConf.bios = "seabios";
+  proxmox.qemuConf.bios = "ovmf";
 
   networking.networkmanager.enable = true;
 
@@ -44,8 +44,8 @@
     extraModulePackages = [ ];
 
     loader = {
-      grub.enable = true;
-      # systemd-boot.enable = true;
+      # grub.enable = true;
+      systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
 
       grub = {
