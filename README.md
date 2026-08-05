@@ -15,7 +15,8 @@ Add the module `proxmox-poc.nixosModules.proxmox-poc` to your nixosConfiguration
 
 Add in your config `networking.bridges."vmbr0".interfaces = [ "<network interface>" ];` (requires `NetworkManager` networking)
 
-Generate the VM image by running in this repo: `nixos-rebuild build-image --image-variant proxmox --flake .#proxmox-poc`
+Generate the VM image by running in this repo:
+`nixos-rebuild build-image --image-variant proxmox --flake .#proxmox-poc`
 Note the store path.
 
 Apply the config.
@@ -28,9 +29,17 @@ sudo qm destroy 101
 
 sudo pvesm set local --content iso,vztmpl,backup,images
 
-sudo qmrestore /nix/store/qjckiibggz4cf0j9srk0g9q7wjss3r7m-vzdump-qemu-nixos-26.11.20260804.e72e4f2/vzdump-qemu-nixos-26.11.20260804.e72e4f2.vma.zst 101 --storage local
+sudo qmrestore /nix/store/zdvyindsv5d612cbkyk88li9nwiqaxlz-vzdump-qemu-nixos-26.11.20260804.418bb87/vzdump-qemu-nixos-26.11.20260804.418bb87.vma.zst 101 --storage local
 ```
 
 Start the VM in proxmox.
 
 Login with `nixos` / `nixos`.
+
+Create `/etc/age/key.txt` with contents:
+
+```
+# created: 2026-08-04T20:41:07+02:00
+# public key: age1fx3kjt7ayswcrll0yl8duz6hh0m5qwvglluen0c55k6mn52n2upqfu6cfk
+AGE-SECRET-KEY-1HK4PDFJLYWQKHXQK6HG38YU3FTYFTXUN2RCVHUNQN3UKMJLNVJHQKEYD8Q
+```
