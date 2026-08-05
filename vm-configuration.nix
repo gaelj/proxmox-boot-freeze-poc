@@ -70,7 +70,7 @@ in
   sharedConfig = {
     boot = {
       videoResolution = "";
-      loader = "grub";
+      loader = "systemd-boot";
     };
     devices.kmscon.enable = false;
     network.interface = "ens18";
