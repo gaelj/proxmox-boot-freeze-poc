@@ -875,11 +875,11 @@
         "yt-x": "yt-x"
       },
       "locked": {
-        "lastModified": 1785856192,
-        "narHash": "sha256-N9FDyvkbYGuQIvo0eXngc0JDHnLP3lWHzfnhAzmNP+I=",
+        "lastModified": 1785925743,
+        "narHash": "sha256-L/3W+jGVbnwpZtBuA2RNZt6Ny9YYNRmUL03k7CqKhBk=",
         "owner": "gaj-nixos",
         "repo": "shared",
-        "rev": "c9a8dd289473b88608a6db18d07a2575d2359f3b",
+        "rev": "15555f2b54de31b632a76b6a7a14baeabcaa8a1e",
         "type": "gitlab"
       },
       "original": {

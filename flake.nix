@@ -111,7 +111,7 @@
             }) // { self' = self; };
             modules = [
               sharedConfig.nixosModules.shared-config
-              ./vm-configuration.nix
+              ./vm
             ];
           };
         };
