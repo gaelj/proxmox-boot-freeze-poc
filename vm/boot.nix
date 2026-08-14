@@ -6,10 +6,6 @@
   self',
   ...
 }:
-let
-  inherit (config.networking) hostName;
-  inherit (config.sharedConfig) flakeRoot flakeMainDir;
-in
 {
   proxmox.cloudInit.enable = false;
 

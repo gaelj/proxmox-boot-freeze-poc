@@ -7,7 +7,6 @@
   ...
 }:
 let
-  inherit (config.networking) hostName;
   inherit (config.sharedConfig) flakeRoot flakeMainDir;
 in
 {

@@ -6,10 +6,6 @@
   self',
   ...
 }:
-let
-  inherit (config.networking) hostName;
-  inherit (config.sharedConfig) flakeRoot flakeMainDir;
-in
 {
   # systemd-boot requires 'ovmf' bios
   proxmox.qemuConf = {

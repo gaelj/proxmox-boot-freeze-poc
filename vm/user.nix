@@ -8,7 +8,6 @@
 }:
 let
   inherit (config.networking) hostName;
-  inherit (config.sharedConfig) flakeRoot flakeMainDir;
 in
 {
   # User account with sudo privileges
